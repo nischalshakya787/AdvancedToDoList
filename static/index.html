@@ -41,24 +41,54 @@
           </div>
         </div>
       </nav>
+      <div class="floater" style="width: 400px">
+        <div class="navFloater text-center">TodoList</div>
+        <div class="container py-3">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="inputTask" placeholder="Add Title" />
+            </div>
+            <div class="mb-3">
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Add Description"
+                class="inputDescription"
+              ></textarea>
+              <!-- <textarea
+                type="text"
+                class="inputDescription"
+                placeholder="Add Description"
+              /> -->
+            </div>
+            <div class="mb-3">
+              <label>Select the color: </label>
+              <select class="colorSelection">
+                <option value="option1">Tomato</option>
+                <option value="option2">Flamingo</option>
+                <option value="option3">Tangerine</option>
+                <option value="option3">Banana</option>
+                <option value="option3">Sage</option>
+                <option value="option3">Blueberry</option>
+              </select>
+            </div>
+            <div
+              class="container d-flex align-items-center justify-content-center"
+            >
+              <button type="submit" class="btn btn-primary">Add Task</button>
+            </div>
+          </form>
+        </div>
+      </div>
       <div class="row">
         <div class="col-sm-3">
           <div class="container">
             <div class="title text-center">ToDoList</div>
           </div>
         </div>
-        <div class="col-sm-9" id="calendar-body">
-          <!-- <div class="calendar"> -->
-          <div class="row text-center rowBorder">
-            <div class="col columnBorder">Sun</div>
-            <div class="col columnBorder">Mon</div>
-            <div class="col columnBorder">Tue</div>
-            <div class="col columnBorder">Wed</div>
-            <div class="col columnBorder">Thu</div>
-            <div class="col columnBorder">Fri</div>
-            <div class="col columnBorder">Sat</div>
-          </div>
-        </div>
+        <div class="col-sm-9" id="calendar-body"></div>
       </div>
     </div>
     <script
@@ -66,5 +96,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/calendar.js"></script>
+    <script src="js/position.js"></script>
   </body>
 </html>

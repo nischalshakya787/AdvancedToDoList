@@ -49,22 +49,23 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         } else if (dayCounter <= daysInMonth) {
           //For actual date
+          let dateInfo = currentYear + "/" + currentMonth + "/" + dayCounter;
           if (i == 0) {
             if (todayDate == dayCounter && todayMonth == currentMonth) {
-              row += `<div class="col columnBorder today"><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
               trackDay++;
               dayCounter++;
             } else {
-              row += `<div class="col columnBorder"><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder trigger" data-info = ${dateInfo}><p class="days" >${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
               trackDay++;
               dayCounter++;
             }
           } else {
             if (todayDate == dayCounter && todayMonth == currentMonth) {
-              row += `<div class="col columnBorder today"><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder today trigger"><span>${dayCounter}</span></div>`;
               dayCounter++;
             } else {
-              row += `<div class="col columnBorder "><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder trigger"><span>${dayCounter}</span></div>`;
               dayCounter++;
             }
           }

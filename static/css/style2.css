@@ -52,6 +52,13 @@
 .col {
   padding: 5px 15px 60px 15px;
   font-size: 14px;
+  cursor: pointer;
+}
+.col-active {
+  background-color: var(--hover-color);
+}
+.col:hover {
+  background-color: var(--hover-color);
 }
 .days {
   color: #70757a;
@@ -66,4 +73,41 @@
   padding: 4px;
   background: rgb(26, 115, 232);
   color: white;
+}
+.floater {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: none;
+}
+.navFloater {
+  background-color: rgb(241, 243, 244);
+  height: 2rem;
+}
+.inputTask {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--border-line);
+  width: 100%;
+  transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.6s;
+  font-size: 20px;
+}
+.inputTask:focus {
+  border-bottom: 2px solid rgb(26, 115, 232);
+}
+.inputDescription {
+  outline: none;
+  border: none;
+  background-color: rgb(241, 243, 244);
+  height: 200px;
+  width: 100%;
+}
+.colorSelection {
+  outline: none;
+  border: none;
+  background-color: rgb(241, 243, 244);
+  width: 250px;
+  padding: 5px 15px;
 }
