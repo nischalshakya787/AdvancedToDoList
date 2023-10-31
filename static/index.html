@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced ToDo</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid p-0" style="max-height: 100vh">
+      <nav class="customNav">
+        <div class="container-fluid d-flex">
+          <a
+            class="navbar-brand"
+            href="#"
+            style="font-size: 20px; color: rgb(49, 52, 54)"
+          >
+            <img
+              src="image/calendar_31_2x.png"
+              style="width: 42px; margin-right: 10px"
+            />
+            Advanced ToDo List</a
+          >
+          <div class="section-1 d-flex">
+            <button id="todayButton" class="todayButton">Today</button>
+            <div class="actionButton-container">
+              <button id="prev-month" class="actionButton">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button id="next-month" class="actionButton">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
+            <div id="current-month-year" class="mx-3">Month Year</div>
+          </div>
+        </div>
+      </nav>
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem">
+            <img src="..." class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9" id="calendar-body">
+          <!-- <div class="calendar"> -->
+          <div class="row text-center rowBorder">
+            <div class="col columnBorder">Sun</div>
+            <div class="col columnBorder">Mon</div>
+            <div class="col columnBorder">Tue</div>
+            <div class="col columnBorder">Wed</div>
+            <div class="col columnBorder">Thu</div>
+            <div class="col columnBorder">Fri</div>
+            <div class="col columnBorder">Sat</div>
+          </div>
+          <!-- <table class="calendar-table">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody id="calendar-body">
+              </tbody>
+            </table> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/6d943f3e12.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/calendar.js"></script>
+  </body>
+</html>

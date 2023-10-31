@@ -1,0 +1,40 @@
+.calendar {
+  font-family: Arial, sans-serif;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+td {
+  text-align: center;
+  border: 1px solid #ddd;
+  width: 40px;
+  height: 40px;
+}
+
+button {
+  background-color: #0074cc;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+#current-month-year {
+  font-size: 20px;
+}

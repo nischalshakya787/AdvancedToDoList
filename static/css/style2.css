@@ -1,0 +1,63 @@
+:root {
+  --border-color: #e0e0e0;
+  --background-color: #fff;
+  --text-color: rgb(60, 64, 67);
+  --hover-color: rgb(243, 243, 243);
+  --active-color: #d8d8d8;
+  --border-line: rgb(218, 220, 224);
+}
+.customNav {
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1.5rem;
+}
+.todayButton {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 4px;
+  font-size: 0.97rem;
+  transition: all ease-in 0.4s;
+  padding: 0 1rem;
+}
+.todayButton:hover {
+  background-color: var(--hover-color);
+}
+.section-1 {
+  margin-left: 3rem;
+}
+.actionButton-container {
+  margin-left: 1.7rem;
+}
+.actionButton {
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  background-color: var(--background-color);
+  color: rgb(95, 99, 104);
+  border-radius: 50%;
+  transition: all ease-in 0.4s;
+}
+.actionButton:hover {
+  background-color: var(--hover-color);
+}
+.actionButton:active {
+  background-color: var(--active-color);
+}
+.rowBorder {
+  border-bottom: 1px solid var(--border-line);
+}
+.columnBorder {
+  border-left: 1px solid rgb(218, 220, 224);
+}
+.col {
+  padding: 5px 15px 60px 15px;
+  font-size: 14px;
+}
+.days {
+  color: #70757a;
+  font-size: 12px;
+  margin: 0;
+}
+.anotherCalendarColor {
+  color: #70757a;
+}
