@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentYear = currentDate.getFullYear();
 
   function updateCalendar() {
+    const todayDate = new Date().getDate();
+    const todayMonth = new Date().getMonth();
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
     const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
     const daysInMonth = lastDayOfMonth.getDate();
@@ -35,18 +37,36 @@ document.addEventListener("DOMContentLoaded", function () {
       for (let j = 0; j < 7; j++) {
         if (i === 0 && j < firstDayOfWeek) {
           //For previous month ending dates
-          row += `<div class="col columnBorder anotherCalendarColor"><p class="days">${Days[trackDay]}</p>${prevMonthDay}</div>`;
-          trackDay++;
-          prevMonthDay++;
+
+          if (todayDate == prevMonthDay && todayMonth == currentMonth - 1) {
+            row += `<div class="col columnBorder anotherCalendarColor today"><p class="days">${Days[trackDay]}</p><span>${prevMonthDay}</span></div>`;
+            trackDay++;
+            prevMonthDay++;
+          } else {
+            row += `<div class="col columnBorder anotherCalendarColor"><p class="days">${Days[trackDay]}</p><span>${prevMonthDay}</span></div>`;
+            trackDay++;
+            prevMonthDay++;
+          }
         } else if (dayCounter <= daysInMonth) {
           //For actual date
           if (i == 0) {
-            row += `<div class="col columnBorder"><p class="days">${Days[trackDay]}</p>${dayCounter}</div>`;
-            trackDay++;
-            dayCounter++;
+            if (todayDate == dayCounter && todayMonth == currentMonth) {
+              row += `<div class="col columnBorder today"><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
+              trackDay++;
+              dayCounter++;
+            } else {
+              row += `<div class="col columnBorder"><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
+              trackDay++;
+              dayCounter++;
+            }
           } else {
-            row += `<div class="col columnBorder ">${dayCounter}</div>`;
-            dayCounter++;
+            if (todayDate == dayCounter && todayMonth == currentMonth) {
+              row += `<div class="col columnBorder today"><span>${dayCounter}</span></div>`;
+              dayCounter++;
+            } else {
+              row += `<div class="col columnBorder "><span>${dayCounter}</span></div>`;
+              dayCounter++;
+            }
           }
         } else {
           //For next months initial date

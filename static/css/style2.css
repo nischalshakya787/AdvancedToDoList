@@ -61,3 +61,9 @@
 .anotherCalendarColor {
   color: #70757a;
 }
+.today span {
+  border-radius: 50%;
+  padding: 4px;
+  background: rgb(26, 115, 232);
+  color: white;
+}
