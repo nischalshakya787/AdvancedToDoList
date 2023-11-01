@@ -49,10 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         } else if (dayCounter <= daysInMonth) {
           //For actual date
-          let dateInfo = currentYear + "/" + currentMonth + "/" + dayCounter;
+          let month = currentMonth + 1;
+          let dateInfo = currentYear + "/" + month + "/" + dayCounter;
           if (i == 0) {
             if (todayDate == dayCounter && todayMonth == currentMonth) {
-              row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><p class="days">${Days[trackDay]}</p><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><p class="days">${Days[trackDay]}</p><span>&nbsp;${dayCounter}&nbsp;</span></div>`;
               trackDay++;
               dayCounter++;
             } else {
@@ -62,10 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           } else {
             if (todayDate == dayCounter && todayMonth == currentMonth) {
-              row += `<div class="col columnBorder today trigger"><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><span>${dayCounter}</span></div>`;
               dayCounter++;
             } else {
-              row += `<div class="col columnBorder trigger"><span>${dayCounter}</span></div>`;
+              row += `<div class="col columnBorder trigger" data-info = ${dateInfo}><span>${dayCounter}</span></div>`;
               dayCounter++;
             }
           }

@@ -3,7 +3,6 @@
   <head>
     <title>Advanced ToDo</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="css/style2.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -42,9 +41,17 @@
         </div>
       </nav>
       <div class="floater" style="width: 400px">
-        <div class="navFloater text-center">TodoList</div>
+        <div class="navFloater text-center d-flex">
+          Add Your To Do Tasks:
+          <div class="position-absolute px-3" style="right: 0">
+            <button class="close" id="close">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </div>
         <div class="container py-3">
           <form>
+            <div class="date mb-4">Date: <span id="displayDate"></span></div>
             <div class="mb-3">
               <input type="text" class="inputTask" placeholder="Add Title" />
             </div>
@@ -57,21 +64,17 @@
                 placeholder="Add Description"
                 class="inputDescription"
               ></textarea>
-              <!-- <textarea
-                type="text"
-                class="inputDescription"
-                placeholder="Add Description"
-              /> -->
             </div>
             <div class="mb-3">
               <label>Select the color: </label>
-              <select class="colorSelection">
-                <option value="option1">Tomato</option>
-                <option value="option2">Flamingo</option>
-                <option value="option3">Tangerine</option>
-                <option value="option3">Banana</option>
-                <option value="option3">Sage</option>
-                <option value="option3">Blueberry</option>
+              <select id="colorSelection" class="colorSelection">
+                <option value="#039be5" selected>Peacock</option>
+                <option value="#dd3f3f">Tomato</option>
+                <option value="#e67c73">Flamingo</option>
+                <option value="#f4511e">Tangerine</option>
+                <option value="#f6bf26">Banana</option>
+                <option value="#33b679">Sage</option>
+                <option value="#3f51b5">Blueberry</option>
               </select>
             </div>
             <div
@@ -96,6 +99,14 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/calendar.js"></script>
-    <script src="js/position.js"></script>
+    <script src="js/floater.js"></script>
+    <script>
+      const colorSelection = document.getElementById("colorSelection");
+
+      colorSelection.addEventListener("click", () => {
+        const color = colorSelection.value;
+        colorSelection.style.background = color;
+      });
+    </script>
   </body>
 </html>

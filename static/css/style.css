@@ -1,32 +1,11 @@
-.calendar {
-  font-family: Arial, sans-serif;
-  width: 300px;
-  margin: 0 auto;
+:root {
+  --border-color: #e0e0e0;
+  --background-color: #fff;
+  --text-color: rgb(60, 64, 67);
+  --hover-color: rgb(243, 243, 243);
+  --active-color: #d8d8d8;
+  --border-line: rgb(218, 220, 224);
 }
-
-.calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.calendar-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th {
-  background-color: #f0f0f0;
-  text-align: center;
-}
-
-td {
-  text-align: center;
-  border: 1px solid #ddd;
-  width: 40px;
-  height: 40px;
-}
-
 button {
   background-color: #0074cc;
   color: #fff;
@@ -34,7 +13,130 @@ button {
   padding: 5px 10px;
   cursor: pointer;
 }
-
 #current-month-year {
   font-size: 20px;
+}
+.customNav {
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1.5rem;
+}
+.todayButton {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  border-radius: 4px;
+  font-size: 0.97rem;
+  transition: all ease-in 0.4s;
+  padding: 0 1rem;
+}
+.todayButton:hover {
+  background-color: var(--hover-color);
+}
+.section-1 {
+  margin-left: 3rem;
+}
+.actionButton-container {
+  margin-left: 1.7rem;
+}
+.actionButton {
+  padding: 0;
+  height: 32px;
+  width: 32px;
+  background-color: var(--background-color);
+  color: rgb(95, 99, 104);
+  border-radius: 50%;
+  transition: all ease-in 0.4s;
+}
+.actionButton:hover {
+  background-color: var(--hover-color);
+}
+.actionButton:active {
+  background-color: var(--active-color);
+}
+.rowBorder {
+  border-bottom: 1px solid var(--border-line);
+}
+.columnBorder {
+  border-left: 1px solid rgb(218, 220, 224);
+}
+.col {
+  padding: 5px 15px 60px 15px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.col-active {
+  background-color: var(--hover-color);
+}
+.col:hover {
+  background-color: var(--hover-color);
+}
+.days {
+  color: #70757a;
+  font-size: 12px;
+  margin: 0;
+}
+.anotherCalendarColor {
+  color: #70757a;
+}
+.today span {
+  border-radius: 50%;
+  padding: 4px;
+  background: rgb(26, 115, 232);
+  color: white;
+}
+.floater {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  display: none;
+  transition: all 0.5s ease;
+}
+
+.navFloater {
+  padding: 10px 30px;
+  background-color: rgb(241, 243, 244);
+  height: auto;
+}
+.inputTask {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid var(--border-line);
+  width: 100%;
+  transition: all cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.6s;
+  font-size: 20px;
+}
+.inputTask:focus {
+  border-bottom: 2px solid rgb(26, 115, 232);
+}
+.inputDescription {
+  outline: none;
+  border: none;
+  background-color: rgb(241, 243, 244);
+  height: 200px;
+  width: 100%;
+}
+.colorSelection {
+  outline: none;
+  border: none;
+  background-color: rgb(241, 243, 244);
+  width: 250px;
+  padding: 5px 15px;
+}
+.colorSelection option {
+  background-color: rgb(241, 243, 244);
+}
+.close {
+  background: rgb(241, 243, 244);
+  color: black;
+  border-radius: 50%;
+  padding: 0;
+  width: 22px;
+  height: 22px;
+  font-size: 15px;
+  transition: all ease-in-out 0.4s;
+}
+.close:hover {
+  background: #d4d4d4;
 }
