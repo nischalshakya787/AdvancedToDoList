@@ -17,7 +17,7 @@
         <div class="container-fluid d-flex">
           <a
             class="navbar-brand"
-            href="#"
+            href="/"
             style="font-size: 20px; color: rgb(49, 52, 54)"
           >
             <img
@@ -50,15 +50,21 @@
           </div>
         </div>
         <div class="container py-3">
-          <form>
+          <form class="task-form">
             <div class="date mb-4">Date: <span id="displayDate"></span></div>
             <div class="mb-3">
-              <input type="text" class="inputTask" placeholder="Add Title" />
+              <input
+                type="text"
+                class="inputTask"
+                id="inputTaskTitle"
+                name="title"
+                placeholder="Add Title"
+              />
             </div>
             <div class="mb-3">
               <textarea
-                name=""
-                id=""
+                name="description"
+                id="inputTaskDescription"
                 cols="30"
                 rows="10"
                 placeholder="Add Description"
@@ -67,7 +73,7 @@
             </div>
             <div class="mb-3">
               <label>Select the color: </label>
-              <select id="colorSelection" class="colorSelection">
+              <select id="colorSelection" class="colorSelection" name="color">
                 <option value="#039be5" selected>Peacock</option>
                 <option value="#dd3f3f">Tomato</option>
                 <option value="#e67c73">Flamingo</option>
@@ -89,15 +95,24 @@
         <div class="col-sm-3">
           <div class="container">
             <div class="title text-center">ToDoList</div>
+            <span class="loading-text">Loading...</span>
+            <div class="tasks"></div>
           </div>
         </div>
         <div class="col-sm-9" id="calendar-body"></div>
       </div>
     </div>
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
       src="https://kit.fontawesome.com/6d943f3e12.js"
       crossorigin="anonymous"
     ></script>
+    <script src="js/signal.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/floater.js"></script>
     <script>
