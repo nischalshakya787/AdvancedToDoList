@@ -140,3 +140,19 @@ button {
 .close:hover {
   background: #d4d4d4;
 }
+.tasks {
+  overflow: auto;
+  /* border: 1px solid; */
+  background: rgb(241, 243, 244);
+  padding: 15px 10px;
+  border-radius: 5px;
+  height: 250px;
+  overflow: hidden;
+  overflow-y: scroll;
+  /* scroll-behavior: smooth; */
+}
+.titleTODO {
+  margin-bottom: 7px;
+  padding: 0 8px;
+  border-radius: 3px;
+}

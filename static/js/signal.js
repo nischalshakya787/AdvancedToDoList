@@ -1,26 +1,28 @@
 const formDOM = document.querySelector(".task-form");
 const loadingDOM = document.querySelector(".loading-text");
 const taskField = document.querySelector(".tasks");
-const title = document.querySelector("#inputTaskTitle");
-const description = document.querySelector("#inputTaskDescription");
-const color = document.querySelector("#colorSelection");
+const titleDOM = document.querySelector("#inputTaskTitle");
+const descriptionDOM = document.querySelector("#inputTaskDescription");
+const colorDOM = document.querySelector("#colorSelection");
+const dateDOM = document.getElementById("displayDate");
 
 const showTask = async () => {
   loadingDOM.style.visibility = "visible";
   try {
     const {
-      data: { tasks },
+      data: { todo },
     } = await axios.get("/api/tasks");
 
-    if (tasks.length < 1) {
+    if (todo.length < 1) {
+      loadingDOM.style.visibility = "hidden";
       taskField.innerHTML = `<span>You have no Tasks</span>`;
       return;
     }
-    console.log(tasks);
-    const allTasks = tasks
+    console.log(todo);
+    const allTasks = todo
       .map((task) => {
         const { _id, title, description, color } = task;
-        return `<p>${title}${description}${color}</p>`;
+        return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><div class="titleTODO" style="background:${color};">${title}</div></a>`;
       })
       .join("");
     taskField.innerHTML = allTasks;
@@ -33,3 +35,23 @@ const showTask = async () => {
 };
 
 showTask();
+
+formDOM.addEventListener("submit", async (e) => {
+  // e.preventDefault();
+  const title = titleDOM.value;
+  const description = descriptionDOM.value;
+  const color = colorDOM.value;
+  const date = dateDOM.innerText;
+
+  const data = {
+    title: title,
+    description: description,
+    color: color,
+    date: date,
+  };
+  try {
+    await axios.post("/api/tasks", data);
+  } catch (error) {
+    console.log(error);
+  }
+});
