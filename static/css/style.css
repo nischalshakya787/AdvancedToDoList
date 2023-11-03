@@ -63,6 +63,8 @@ button {
   padding: 5px 15px 60px 15px;
   font-size: 14px;
   cursor: pointer;
+  height: 86px;
+  overflow: hidden;
 }
 .col-active {
   background-color: var(--hover-color);
@@ -144,7 +146,7 @@ button {
   overflow: auto;
   /* border: 1px solid; */
   background: rgb(241, 243, 244);
-  padding: 15px 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   height: 250px;
   overflow: hidden;
@@ -153,6 +155,43 @@ button {
 }
 .titleTODO {
   margin-bottom: 7px;
-  padding: 0 8px;
+  padding: 6px 8px;
   border-radius: 3px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  transition: all ease 0.5s;
+}
+.titleTODO:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.title {
+  background: rgb(241, 243, 244);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.random {
+  display: block;
+  text-align: justify;
+  margin-top: 2px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+  transition: all ease 0.5s;
+}
+.random:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.colorPalete {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline;
 }

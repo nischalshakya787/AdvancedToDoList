@@ -22,7 +22,7 @@ const showTask = async () => {
     const allTasks = todo
       .map((task) => {
         const { _id, title, description, color } = task;
-        return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><div class="titleTODO" style="background:${color};">${title}</div></a>`;
+        return `<a href="/api/tasks/${_id}" class="titleTODO"><span class="colorPalete" style="background:${color};"></span> &nbsp;${title}</a>`;
       })
       .join("");
     taskField.innerHTML = allTasks;
