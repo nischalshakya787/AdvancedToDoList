@@ -196,8 +196,7 @@ button {
   display: inline;
 }
 .motivational-box {
-  margin-left: 10px;
-  margin-top: 25px;
+  margin: 25px 10px 0 10px;
   background: rgb(241, 243, 244);
   border-radius: 5px;
 }
@@ -217,10 +216,71 @@ button {
 }
 .authorDiv {
   font-size: 12px;
+  padding: 12px 0;
   /* margin-top: 15px; */
   margin: 15px;
 }
-.dark-mode {
-  background: black;
+
+.lds-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid red;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: red transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.edit-message {
+  border: 1px solid;
+  position: absolute;
+  right: 0;
+  background: #198754;
   color: white;
+  transition: all 0.5s ease-in-out;
+}
+.horizontal-loader {
+  height: 8px;
+  width: 0; /* Initial width is 0 */
+  background-color: #3498db; /* Blue color */
+  animation: progress 6s linear infinite; /* Progress animation, adjust the duration as needed */
+}
+.edit-message:not(.loading) {
+  display: none;
+}
+@keyframes progress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%; /* Full width */
+  }
 }

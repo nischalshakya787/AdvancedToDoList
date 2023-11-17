@@ -11,7 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentYear = currentDate.getFullYear();
 
   function isSingleDigit(digit) {
-    return typeof digit === "number" && digit >= 0 && digit <= 9;
+    if (digit >= 10) {
+      return digit;
+    } else {
+      let newDigit = "0" + digit;
+      return newDigit;
+    }
   }
 
   const updateCalendar = async () => {
@@ -23,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
       todo.sort((a, b) => new Date(a.date) - new Date(b.date)); //This will sort the date in ascending order
 
       console.log(todo);
+
+      //Filtering the total array to the current month
+      //Example if we are on November section then the array will be filtered and only data of month Novemeber wil be present
+      const filteredToDoArray = todo.filter((item) => {
+        const itemMonth = new Date(item.date).getMonth() + 1; // Adding 1 because getMonth() returns 0-based index
+        return itemMonth === currentMonth + 1;
+      });
+
       const todayDate = new Date().getDate();
       const todayMonth = new Date().getMonth();
       const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
@@ -63,13 +76,21 @@ document.addEventListener("DOMContentLoaded", function () {
           } else if (dayCounter <= daysInMonth) {
             //For actual date
             let month = currentMonth + 1;
-            let dateInfo = currentYear + "/" + month + "/" + dayCounter;
+            let dateInfo =
+              currentYear +
+              "-" +
+              isSingleDigit(month) +
+              "-" +
+              isSingleDigit(dayCounter);
             if (i == 0) {
               if (todayDate == dayCounter && todayMonth == currentMonth) {
                 //This process will display the task in calendar body if any exits
                 let todoArray = [];
-                while (flag < todo.length && dateInfo === todo[flag].date) {
-                  todoArray.push(todo[flag]);
+                while (
+                  flag < filteredToDoArray.length &&
+                  dateInfo === filteredToDoArray[flag].date
+                ) {
+                  todoArray.push(filteredToDoArray[flag]);
                   flag++;
                 }
                 row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><p class="days">${Days[trackDay]}</p><span>&nbsp;${dayCounter}&nbsp;</span>`;
@@ -78,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="view?id=${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -90,8 +111,11 @@ document.addEventListener("DOMContentLoaded", function () {
               } else {
                 //This process will display the task in calendar body if any exits
                 let todoArray = [];
-                while (flag < todo.length && dateInfo === todo[flag].date) {
-                  todoArray.push(todo[flag]);
+                while (
+                  flag < filteredToDoArray.length &&
+                  dateInfo === filteredToDoArray[flag].date
+                ) {
+                  todoArray.push(filteredToDoArray[flag]);
                   flag++;
                 }
                 row += `<div class="col columnBorder trigger" data-info = ${dateInfo}><p class="days" >${Days[trackDay]}</p><span>${dayCounter}</span>`;
@@ -99,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="view?id=${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -114,8 +138,11 @@ document.addEventListener("DOMContentLoaded", function () {
               if (todayDate == dayCounter && todayMonth == currentMonth) {
                 //This process will display the task in calendar body if any exits
                 let todoArray = [];
-                while (flag < todo.length && dateInfo === todo[flag].date) {
-                  todoArray.push(todo[flag]);
+                while (
+                  flag < filteredToDoArray.length &&
+                  dateInfo === filteredToDoArray[flag].date
+                ) {
+                  todoArray.push(filteredToDoArray[flag]);
                   flag++;
                 }
                 row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><span class="forToday">${dayCounter}</span>`;
@@ -123,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="view?id=${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -134,8 +161,11 @@ document.addEventListener("DOMContentLoaded", function () {
               } else {
                 //This process will display the task in calendar body if any exits
                 let todoArray = [];
-                while (flag < todo.length && dateInfo === todo[flag].date) {
-                  todoArray.push(todo[flag]);
+                while (
+                  flag < filteredToDoArray.length &&
+                  dateInfo === filteredToDoArray[flag].date
+                ) {
+                  todoArray.push(filteredToDoArray[flag]);
                   flag++;
                 }
                 row += `<div class="col columnBorder trigger" data-info = ${dateInfo}><span>${dayCounter}</span>`;
@@ -143,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="view?id=${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;

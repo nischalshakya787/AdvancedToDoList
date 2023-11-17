@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const todo = require("./routes/todos");
+const path = require("path");
 const connectDB = require("./db/connect");
 require("dotenv").config(); //We can access the variable of .env file in this file
 app.use(express.json());
@@ -12,6 +13,10 @@ const startServer = async () => {
 
     app.use(express.static("./static"));
     app.use("/api/tasks", todo);
+
+    app.get("/view", (req, res) => {
+      res.sendFile(path.join(__dirname, "static", "viewTask.html"));
+    });
 
     app.listen(8000, () => {
       console.log("Server is running on port : 8000...");
