@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentMonth = currentDate.getMonth();
   let currentYear = currentDate.getFullYear();
 
+  function isSingleDigit(digit) {
+    return typeof digit === "number" && digit >= 0 && digit <= 9;
+  }
+
   const updateCalendar = async () => {
     try {
       const {
@@ -74,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="random" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -95,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="random" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -114,12 +118,12 @@ document.addEventListener("DOMContentLoaded", function () {
                   todoArray.push(todo[flag]);
                   flag++;
                 }
-                row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><span>${dayCounter}</span>`;
+                row += `<div class="col columnBorder today trigger" data-info = ${dateInfo}><span class="forToday">${dayCounter}</span>`;
                 if (todoArray) {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="random" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;
@@ -139,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   const todos = todoArray
                     .map((todo) => {
                       const { _id, title, description, color } = todo;
-                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="random" style="background:${color};">${todo.title}</span></a>`;
+                      return `<a href="/api/tasks/${_id}" style="text-decoration:none;color:black;"><span class="todoInDate" style="background:${color};">${todo.title}</span></a>`;
                     })
                     .join("");
                   row += todos;

@@ -13,6 +13,7 @@ const showTask = async () => {
       data: { todo },
     } = await axios.get("/api/tasks");
 
+    todo.sort((a, b) => new Date(a.date) - new Date(b.date)); //This will sort the date in ascending order
     if (todo.length < 1) {
       loadingDOM.style.visibility = "hidden";
       taskField.innerHTML = `<span>You have no Tasks</span>`;

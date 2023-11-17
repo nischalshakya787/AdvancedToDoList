@@ -80,7 +80,7 @@ button {
 .anotherCalendarColor {
   color: #70757a;
 }
-.today span {
+.today .forToday {
   border-radius: 50%;
   padding: 4px;
   background: rgb(26, 115, 232);
@@ -174,7 +174,7 @@ button {
   font-size: 18px;
   font-weight: 600;
 }
-.random {
+.todoInDate {
   display: block;
   text-align: justify;
   margin-top: 2px;
@@ -183,9 +183,9 @@ button {
   font-size: 11px;
   color: white;
   font-weight: 500;
-  transition: all ease 0.5s;
+  transition: all ease-in-out 0.4s;
 }
-.random:hover {
+.todoInDate:hover {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -194,4 +194,33 @@ button {
   height: 18px;
   border-radius: 50%;
   display: inline;
+}
+.motivational-box {
+  margin-left: 10px;
+  margin-top: 25px;
+  background: rgb(241, 243, 244);
+  border-radius: 5px;
+}
+.m-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgb(80 80 80);
+  width: 100%;
+  padding: 8px;
+}
+.motivation {
+  margin: 15px 10px 0 10px;
+}
+.motivationLoader {
+  margin: 15px 10px 0 10px;
+}
+.authorDiv {
+  font-size: 12px;
+  /* margin-top: 15px; */
+  margin: 15px;
+}
+.dark-mode {
+  background: black;
+  color: white;
 }
