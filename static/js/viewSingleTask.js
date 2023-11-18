@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const statusBtn = document.getElementById("statusBtn");
   const editBtn = document.getElementById("editBtn");
   const deleteBtn = document.getElementById("deleteBtn");
-  const formDOM = document.querySelector(".task-form");
   const editMsg = document.querySelector(".edit-message");
+  const checkBox = document.getElementById("myCheckbox01");
 
   const showSingleTask = async () => {
     ringLoader.style.display = "block";
@@ -18,14 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const {
         data: { todo },
-      } = await axios.get(`api/tasks/${id}`);
+      } = await axios.get(`api/tasks/v1/${id}`);
       ringLoader.style.display = "none";
       todo.map((task) => {
-        const { _id, title, date, description, color } = task;
+        const { _id, title, date, description, color, status } = task;
         dateDOM.value = date;
         titleDOM.value = title;
         descriptionDOM.value = description;
         colorDOM.value = color;
+        if (status) {
+          checkBox.checked = true;
+        }
       });
       containerDOM.style.display = "block";
 
@@ -37,6 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   showSingleTask();
 
+  const checkBoxStatus = () => {
+    if (checkBox.checked) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   editBtn.addEventListener("click", async (e) => {
     e.preventDefault();
 
@@ -45,11 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const udescription = descriptionDOM.value;
       const ucolor = colorDOM.value;
       const udate = dateDOM.value;
-      await axios.patch(`api/tasks/${id}`, {
+      const ustatus = checkBoxStatus();
+      await axios.patch(`api/tasks/v1/${id}`, {
         title: utitle,
         description: udescription,
         date: udate,
         color: ucolor,
+        status: ustatus,
       });
       editMsg.style.display = "block";
       setTimeout(() => {
@@ -62,10 +74,15 @@ document.addEventListener("DOMContentLoaded", () => {
   deleteBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     try {
-      await axios.delete(`api/tasks/${id}`);
+      await axios.delete(`api/tasks/v1/${id}`);
       window.location.href = "/";
     } catch (error) {
       console.log(error);
     }
+  });
+
+  statusBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    checkBox.checked = !checkBox.checked;
   });
 });

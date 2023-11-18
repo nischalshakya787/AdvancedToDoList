@@ -37,8 +37,8 @@
         <span style="margin: 15px;">Task Edited Successfully!!</span>
         <div class="horizontal-loader" style="position: absolute; bottom: 0;"></div>
       </div>
-      <div class="container border mt-5" id = "editContainer" style="display:none;width:500px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
-        <div class="title text-center" style="background: white;">
+      <div class="container border my-4" id = "editContainer" style="display:none;width:500px;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;">
+        <div class="title text-center mt-2" style="background: white;">
           <span>Edit Task</span>   
       </div>
       
@@ -77,14 +77,23 @@
               <option value="#3f51b5">Blueberry</option>
             </select>
           </div>
-          <div class="container my-3">
+
+          <div class="check-group">
+            <label for="myCheckbox01" class="checkbox">
+              <input class="checkbox__input" type="checkbox" id="myCheckbox01">
+              <span class="checkbox__label">Mark As Complete</span>
+            </label>
+          </div>
+          
+          </div>
+          <div class="container mb-3">
             <span class="mx-2"><i class="fa-solid fa-square-check" style="color:#198754"></i> Mark as Complete</span>
             <span class="mx-2"><i class="fa-solid fa-pen-to-square" style="color:#0d6efd"></i> Edit Task</span>
             <span class="mx-2"><i class="fa-solid fa-trash" style="color:#dc3545"></i> Delete Task</span>
 
           </div>
           <div
-            class="container d-flex align-items-center justify-content-center"
+            class="container d-flex align-items-center justify-content-center mb-3"
           >
             <button type="submit" class="btn btn-success mx-3" id="statusBtn"><i class="fa-solid fa-square-check"></i></button>
             <button type="submit" class="btn btn-primary mx-3" id="editBtn"><i class="fa-solid fa-pen-to-square"></i></button>
