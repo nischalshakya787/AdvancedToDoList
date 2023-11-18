@@ -98,8 +98,33 @@
       <div class="row">
         <div class="col-sm-3">
           <div class="container">
-            <span class="loading-text">Loading...</span>
-            <div class="title text-center">ToDoList</div>
+            <div class="title text-center m-title">ToDoList</div>
+            <div
+              class="filterContainer"
+              style="
+                background: #f1f1f1;
+                display: flex;
+                justify-content: center;
+              "
+            >
+              <button class="filterBtn" id="all" value="all">All</button>
+              <button class="filterBtn" id="pending" value="pending">
+                Pending
+              </button>
+              <button class="filterBtn" id="completed" value="completed">
+                Completed
+              </button>
+              <div
+                class="lds-ring ringLoader loading-text"
+                style="position: absolute"
+              >
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+
             <div class="tasks"></div>
           </div>
           <div class="motivational-box">

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const {
         data: { todo },
-      } = await axios.get("/api/tasks");
+      } = await axios.get("/api/tasks/all");
 
       todo.sort((a, b) => new Date(a.date) - new Date(b.date)); //This will sort the date in ascending order
 
