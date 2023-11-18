@@ -14,6 +14,7 @@ The project allows users to perform various CRUD (Create, Read, Update, Delete) 
 
 - Node.js
 - Express.js
+- MongoDB
 
 ## Installation
 
