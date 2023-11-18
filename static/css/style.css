@@ -237,11 +237,10 @@ button {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 8px solid rgb(26, 115, 232);
-
+  border: 8px solid red;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: rgb(26, 115, 232) transparent transparent transparent;
+  border-color: red transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -284,29 +283,4 @@ button {
   100% {
     width: 100%; /* Full width */
   }
-}
-
-/* Style the buttons */
-.filterBtn {
-  margin: 9px 4px;
-  /* width: 6rem; */
-  padding: 7px 16px;
-  font-size: 14px;
-  border: none;
-  outline: none;
-  background-color: #f1f1f1;
-  color: black;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-/* Add a light grey background on mouse-over */
-.filterBtn:hover {
-  background-color: #ddd;
-}
-
-/* Add a dark background to the active button */
-.filterBtn.active {
-  background-color: #666;
-  color: white;
 }
