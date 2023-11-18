@@ -8,14 +8,25 @@ const createTask = async (req, res) => {
     return res.status(404).json({ msg: error });
   }
 };
+
 const getAllTask = async (req, res) => {
   try {
-    const AllTask = await toDoModel.find({});
-    return res.status(200).json({ todo: AllTask });
+    const { method } = req.params;
+    if (method === "all") {
+      const AllTask = await toDoModel.find({});
+      return res.status(200).json({ todo: AllTask });
+    } else if (method === "pending") {
+      const AllTask = await toDoModel.find({ status: false });
+      return res.status(200).json({ todo: AllTask });
+    } else {
+      const AllTask = await toDoModel.find({ status: true });
+      return res.status(200).json({ todo: AllTask });
+    }
   } catch (error) {
     return res.status(404).json({ msg: error });
   }
 };
+
 const getTask = async (req, res) => {
   try {
     const { id: toDoId } = req.params;
@@ -25,6 +36,7 @@ const getTask = async (req, res) => {
     return res.status(404).json({ msg: error });
   }
 };
+
 const updateTask = async (req, res) => {
   try {
     const { id: TaskID } = req.params;
@@ -41,6 +53,7 @@ const updateTask = async (req, res) => {
     return res.status(404).json({ msg: error });
   }
 };
+
 const deleteTask = async (req, res) => {
   try {
     const { id: TaskID } = req.params;
