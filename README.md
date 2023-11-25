@@ -54,4 +54,4 @@ If you would like to contribute to this project, follow these steps:
 
 Feel free to reach out if you have any questions or suggestions:
 
-Email: nischalshakya787@gmail.com
+Email: nischalshakya798@gmail.com
