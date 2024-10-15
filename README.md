@@ -49,10 +49,10 @@ If you would like to contribute to this project, follow these steps:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Make your changes.
-4. Submit a pull request.
+4. Submit a pull request. 
 
 # Contact
 
-Feel free to reach out if you have any questions or suggestions:
+Feel free to reach out if you have any questions or suggestions :
 
 Email: nischalshakya787@gmail.com
